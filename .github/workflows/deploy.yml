@@ -1,0 +1,45 @@
+name: Deploy a Hostinger
+
+# Se ejecuta en cada push a main, o manualmente desde la pestaña Actions.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Evita despliegues solapados si haces varios push seguidos.
+concurrency:
+  group: deploy-hostinger
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Compilar el sitio
+        run: npm run build
+
+      - name: Subir dist/ a Hostinger por FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # Solo sube el resultado del build.
+          local-dir: ./dist/
+          # Carpeta pública en Hostinger. Si tu cuenta FTP YA entra directo a
+          # public_html, cambia esto por "./".
+          server-dir: ./public_html/
+          # Sincroniza solo lo que cambió (rápido). El action guarda un
+          # ".ftp-deploy-sync-state.json" en el servidor para lograrlo.
