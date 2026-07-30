@@ -29,17 +29,17 @@ const CuboPage = () => {
   ];
 
   const layoutImages = [
-    "https://btawegolhzbuztkaswaj.supabase.co/storage/v1/object/public/Fotos/5.png",
-    "https://btawegolhzbuztkaswaj.supabase.co/storage/v1/object/public/Fotos/12.png",
-    "https://btawegolhzbuztkaswaj.supabase.co/storage/v1/object/public/Fotos/11.png"
+    "/fotos/n-cubo-ext.webp",
+    "/fotos/n-interior.webp",
+    "/fotos/n-breathe.webp"
   ];
 
   const galleryImages = [
-    "https://btawegolhzbuztkaswaj.supabase.co/storage/v1/object/public/Fotos/10.png",
-    "https://btawegolhzbuztkaswaj.supabase.co/storage/v1/object/public/Fotos/15.png",
-    "https://btawegolhzbuztkaswaj.supabase.co/storage/v1/object/public/Fotos/3.png",
-    "https://btawegolhzbuztkaswaj.supabase.co/storage/v1/object/public/Fotos/7.png",
-    "https://btawegolhzbuztkaswaj.supabase.co/storage/v1/object/public/Fotos/9.png"
+    "/fotos/n-tina.webp",
+    "/fotos/n-cocina.webp",
+    "/fotos/n-vista.webp",
+    "/fotos/n-sendero.webp",
+    "/fotos/n-selibre.webp"
   ];
 
   const openModal = (index) => {
@@ -66,10 +66,10 @@ const CuboPage = () => {
       {/* Hero Banner */}
       <div className="relative h-[50vh] w-full overflow-hidden">
          <img
-            src="https://btawegolhzbuztkaswaj.supabase.co/storage/v1/object/public/Fotos/5.png"
-            alt="Cabaña Cubo"
+            src="/fotos/n-terraza.webp"
+            alt="Cabaña Cubo con vista a la montaña"
             decoding="async"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center"
          />
          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
             <h1 className="text-5xl md:text-7xl text-white text-shadow text-center px-4 font-normal">
@@ -123,30 +123,28 @@ const CuboPage = () => {
              whileInView={{ opacity: 1, x: 0 }}
              className="space-y-4"
            >
-              <div className="grid grid-cols-2 gap-4 h-96">
-                 <img src={layoutImages[1]} loading="lazy" decoding="async" className="w-full h-full object-cover rounded-xl" alt="Interior" />
-                 <div className="grid grid-rows-2 gap-4 h-full">
-                    <img src={layoutImages[2]} loading="lazy" decoding="async" className="w-full h-full object-cover rounded-xl" alt="Detalle" />
-                    <img src="https://btawegolhzbuztkaswaj.supabase.co/storage/v1/object/public/Fotos/13.png" loading="lazy" decoding="async" className="w-full h-full object-cover rounded-xl" alt="Entrada" />
+              <div className="grid grid-cols-2 gap-3 h-80 sm:h-96">
+                 <img src={layoutImages[1]} loading="lazy" decoding="async" className="w-full h-full object-cover rounded-2xl" alt="Interior" />
+                 <div className="grid grid-rows-2 gap-3 h-full">
+                    <img src={layoutImages[2]} loading="lazy" decoding="async" className="w-full h-full object-cover rounded-2xl" alt="Detalle" />
+                    <img src="/fotos/n-entrada.webp" loading="lazy" decoding="async" className="w-full h-full object-cover rounded-2xl" alt="Entrada" />
                  </div>
               </div>
-              
-              <div className="bg-[#307458]/20 p-6 rounded-xl border border-[#307458] text-center">
-                 <p className="text-sm text-gray-300 mb-2 font-light">{t('rooms.cubo.priceWeekday')}</p>
-                 <div className="flex items-center justify-center gap-3 mb-1">
-                    <span className="text-lg text-gray-400 line-through decoration-red-500/70 font-light">$450.000</span>
-                    <span className="text-4xl text-white font-normal">$390.000</span>
-                 </div>
-                 <p className="text-sm text-gray-300 mb-6 font-light">{t('rooms.cubo.perNight')}</p>
-                 
-                 <div className="w-full h-px bg-white/20 my-4"></div>
 
-                 <p className="text-sm text-gray-300 mb-2 font-light">{t('rooms.cubo.priceWeekend')}</p>
-                 <div className="flex items-center justify-center gap-3 mb-1">
-                    <span className="text-lg text-gray-400 line-through decoration-red-500/70 font-light">$650.000</span>
-                    <span className="text-4xl text-white font-normal">$499.000</span>
+              {/* Precios: dos tarjetas sólidas, claramente separadas del collage */}
+              <div className="grid grid-cols-2 gap-3 pt-2">
+                 <div className="bg-[#1c2822] border border-[#307458]/50 rounded-2xl p-5 text-center shadow-lg">
+                    <p className="text-[11px] uppercase tracking-wider text-[#c0e69b] mb-3">{t('rooms.cubo.priceWeekday')}</p>
+                    <span className="block text-sm text-gray-500 line-through decoration-red-500/70 font-light">$450.000</span>
+                    <span className="block text-3xl text-white font-normal">$390.000</span>
+                    <p className="text-xs text-gray-400 mt-2 font-light">{t('rooms.cubo.perNight')}</p>
                  </div>
-                 <p className="text-sm text-gray-300 mb-4 font-light">{t('rooms.cubo.perNight')}</p>
+                 <div className="bg-[#1c2822] border border-[#307458]/50 rounded-2xl p-5 text-center shadow-lg">
+                    <p className="text-[11px] uppercase tracking-wider text-[#c0e69b] mb-3">{t('rooms.cubo.priceWeekend')}</p>
+                    <span className="block text-sm text-gray-500 line-through decoration-red-500/70 font-light">$650.000</span>
+                    <span className="block text-3xl text-white font-normal">$499.000</span>
+                    <p className="text-xs text-gray-400 mt-2 font-light">{t('rooms.cubo.perNight')}</p>
+                 </div>
               </div>
            </motion.div>
         </div>

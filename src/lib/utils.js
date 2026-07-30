@@ -6,9 +6,8 @@ export function cn(...inputs) {
 }
 
 /*
-  Scroll suave propio (requestAnimationFrame).
-  scrollIntoView({behavior:'smooth'}) es cancelado por el plugin de restauración
-  de ruta de Horizons en dev, así que animamos a mano. Respeta prefers-reduced-motion.
+  Scroll suave propio (requestAnimationFrame). Nos da control total sobre la
+  duración y el easing, y respeta prefers-reduced-motion.
 */
 export function smoothScrollToY(targetY, duration = 600) {
   const startY = window.scrollY;

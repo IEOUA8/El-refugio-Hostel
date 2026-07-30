@@ -33,7 +33,7 @@ const About = () => {
         <SmartImage
           className="w-full h-full object-cover dark-filter"
           alt="Paisaje natural del Refugio"
-          src="https://btawegolhzbuztkaswaj.supabase.co/storage/v1/object/public/Fotos/1.png"
+          src="/fotos/1.webp"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#26342d]/80 via-[#26342d]/70 to-[#26342d]/80"></div>
       </div>

@@ -42,3 +42,6 @@ Icon?
 
 # Claude local settings
 .claude/settings.local.json
+
+# Respaldo local de fotos originales (no desplegar)
+_fotos-originales/

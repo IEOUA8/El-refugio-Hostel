@@ -26,7 +26,7 @@ const Footer = () => {
         {/* LOGO SIEMPRE CENTRADO */}
         <div className="w-full flex justify-center items-center mb-12">
           <a href="#inicio" className="flex justify-center items-center w-full">
-            <img src="https://horizons-cdn.hostinger.com/f7a28aa3-9610-4d7e-a771-af4f25a441ae/106bf87674125055483cccfaff80e8d5.png" alt="El Refugio Logo" loading="lazy" decoding="async" className="h-56 md:h-64 w-auto object-contain" />
+            <img src="/brand/logo-footer.png" alt="El Refugio Logo" loading="lazy" decoding="async" className="h-56 md:h-64 w-auto object-contain" />
           </a>
         </div>
 

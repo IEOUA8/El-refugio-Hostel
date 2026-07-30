@@ -54,7 +54,7 @@ const Navbar = () => {
         >
           <Link to="/" className="flex items-center gap-3">
             <img
-              src="https://horizons-cdn.hostinger.com/f7a28aa3-9610-4d7e-a771-af4f25a441ae/logo-new-web-y1jri.png"
+              src="/brand/logo.png"
               alt="El Refugio Logo"
               className={`w-auto object-contain transition-all duration-300 ${
                 scrolled ? 'h-[64px] md:h-[80px] md:w-[150px]' : 'h-[90px] md:h-[110px] md:w-[200px]'

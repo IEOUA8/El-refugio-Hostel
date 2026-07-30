@@ -21,80 +21,80 @@ const Gallery = () => {
       title: t('gallery.items.terraza.title'),
       location: "Buenavista, Quindío",
       rating: 4.9,
-      thumb: "https://btawegolhzbuztkaswaj.supabase.co/storage/v1/object/public/Fotos/7.png",
-      full: "https://btawegolhzbuztkaswaj.supabase.co/storage/v1/object/public/Fotos/7.png",
+      thumb: "/fotos/n-terraza.webp",
+      full: "/fotos/n-terraza.webp",
       description: t('gallery.items.terraza.desc')
     },
     {
       title: "Entrada al Paraíso",
       location: "El Refugio",
       rating: 4.8,
-      thumb: "https://btawegolhzbuztkaswaj.supabase.co/storage/v1/object/public/Fotos/13.png",
-      full: "https://btawegolhzbuztkaswaj.supabase.co/storage/v1/object/public/Fotos/13.png",
+      thumb: "/fotos/n-entrada.webp",
+      full: "/fotos/n-entrada.webp",
       description: "El primer paso hacia una experiencia de desconexión y armonía con la naturaleza."
     },
     {
       title: "Rincón de Paz",
-      location: "Exterior Cabaña",
+      location: "Interior Cabaña",
       rating: 5.0,
-      thumb: "https://btawegolhzbuztkaswaj.supabase.co/storage/v1/object/public/Fotos/11.png",
-      full: "https://btawegolhzbuztkaswaj.supabase.co/storage/v1/object/public/Fotos/11.png",
+      thumb: "/fotos/n-breathe.webp",
+      full: "/fotos/n-breathe.webp",
       description: "Detalles que inspiran calma y te invitan a respirar profundo. Simplemente 'Breathe'."
     },
     {
       title: "Mirador en Plenitud",
       location: "Zona Común",
       rating: 4.7,
-      thumb: "https://btawegolhzbuztkaswaj.supabase.co/storage/v1/object/public/Fotos/14.png",
-      full: "https://btawegolhzbuztkaswaj.supabase.co/storage/v1/object/public/Fotos/14.png",
-      description: "Observa este hermoso paisaje y disfruta de la fauna."
+      thumb: "/fotos/n-mirador.webp",
+      full: "/fotos/n-mirador.webp",
+      description: "Observa este hermoso paisaje y déjate abrazar por la montaña."
     },
     {
       title: "Cocina al Aire Libre",
-      location: "Cocina al Aire Libre",
+      location: "Desayuno con vista",
       rating: 4.9,
-      thumb: "https://btawegolhzbuztkaswaj.supabase.co/storage/v1/object/public/Fotos/12.png",
-      full: "https://btawegolhzbuztkaswaj.supabase.co/storage/v1/object/public/Fotos/12.png",
-      description: "Prepara tus alimentos rodeado del sonido de la naturaleza en nuestra cocina exterior."
+      thumb: "/fotos/n-cocina.webp",
+      full: "/fotos/n-cocina.webp",
+      description: "Comienza el día con un desayuno rodeado del sonido de la naturaleza."
     },
     {
       title: "Decoración y Encanto",
-      location: "Lavamanos",
+      location: "Rincón interior",
       rating: 5.0,
-      thumb: "https://btawegolhzbuztkaswaj.supabase.co/storage/v1/object/public/Fotos/15.png",
-      full: "https://btawegolhzbuztkaswaj.supabase.co/storage/v1/object/public/Fotos/15.png",
-      description: "Disfruta de una estadía sin interrupciones con tranquilidad total"
+      thumb: "/fotos/n-decoracion.webp",
+      full: "/fotos/n-decoracion.webp",
+      description: "Cada detalle está pensado para una estadía con tranquilidad total."
     },
     {
       title: "Baño de Bosque",
       location: "Tina",
       rating: 4.9,
-      thumb: "https://btawegolhzbuztkaswaj.supabase.co/storage/v1/object/public/Fotos/3.png",
-      full: "https://btawegolhzbuztkaswaj.supabase.co/storage/v1/object/public/Fotos/3.png",
+      thumb: "/fotos/n-tina.webp",
+      full: "/fotos/n-tina.webp",
       description: "Sumérgete en nuestro hot tub de madera y deja que la montaña te abrace."
     },
     {
       title: "Espacio Acogedor",
       location: "Interior",
       rating: 4.8,
-      thumb: "https://btawegolhzbuztkaswaj.supabase.co/storage/v1/object/public/Fotos/4.png",
-      full: "https://btawegolhzbuztkaswaj.supabase.co/storage/v1/object/public/Fotos/4.png",
+      thumb: "/fotos/n-interior.webp",
+      full: "/fotos/n-interior.webp",
       description: "Cada rincón está pensado para tu comodidad y tranquilidad."
     },
     {
       title: "Naturaleza Viva",
       location: "Alrededores",
       rating: 4.9,
-      thumb: "https://btawegolhzbuztkaswaj.supabase.co/storage/v1/object/public/Fotos/6.png",
-      full: "https://btawegolhzbuztkaswaj.supabase.co/storage/v1/object/public/Fotos/6.png",
+      thumb: "/fotos/n-naturaleza.webp",
+      full: "/fotos/n-naturaleza.webp",
       description: "Explora la biodiversidad que rodea nuestro refugio."
     },
     {
       title: "Noche Estrellada",
       location: "Fogata",
       rating: 5.0,
-      thumb: "https://btawegolhzbuztkaswaj.supabase.co/storage/v1/object/public/Fotos/9.png",
-      full: "https://btawegolhzbuztkaswaj.supabase.co/storage/v1/object/public/Fotos/9.png",
+      thumb: "/fotos/n-fogata.webp",
+      full: "/fotos/n-fogata.webp",
       description: "Comparte historias bajo el cielo estrellado junto al calor del fuego."
     }
   ];
@@ -103,7 +103,7 @@ const Gallery = () => {
   const activeItem = galleryItems[activeIndex];
 
   // Centra la miniatura activa dentro del carrusel (scroll horizontal del contenedor,
-  // independiente del scroll de ventana → no lo intercepta el plugin dev de Horizons).
+  // independiente del scroll de ventana).
   useEffect(() => {
     const strip = stripRef.current;
     if (!strip) return;
@@ -182,7 +182,7 @@ const Gallery = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="relative w-full aspect-[4/5] sm:aspect-[4/3] lg:aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl ring-1 ring-white/10 bg-[#1c2822]"
+          className="relative w-full aspect-[4/5] sm:aspect-[4/3] lg:aspect-[3/2] rounded-3xl overflow-hidden shadow-2xl ring-1 ring-white/10 bg-[#1c2822]"
         >
           {/* Placeholder mientras carga el PNG pesado (evita el vacío) */}
           {loadedFull !== activeItem.full && (

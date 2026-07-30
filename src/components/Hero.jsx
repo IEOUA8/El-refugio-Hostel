@@ -6,7 +6,7 @@ import { scrollToSection } from '@/lib/utils';
 
 const Hero = () => {
   const { t } = useLanguage();
-  const [imgLoaded, setImgLoaded] = React.useState(false);
+  const [videoLoaded, setVideoLoaded] = React.useState(false);
 
   return (
     <section
@@ -14,16 +14,28 @@ const Hero = () => {
       className="relative h-[100svh] min-h-[600px] flex items-center justify-center overflow-hidden"
     >
       <div className="absolute inset-0 z-0 bg-[#1c2822]">
-        <motion.img
+        {/* Imagen de respaldo: se ve mientras carga el video y si este no puede reproducirse */}
+        <img
+          decoding="async"
+          className={`absolute inset-0 w-full h-full object-cover dark-filter transition-opacity duration-1000 ${videoLoaded ? 'opacity-0' : 'opacity-100'}`}
+          alt="Montañas del Quindío al amanecer con niebla"
+          src="/fotos/2.webp"
+        />
+        <motion.video
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
-          transition={{ duration: 10, ease: 'linear' }}
-          onLoad={() => setImgLoaded(true)}
-          decoding="async"
-          className={`w-full h-full object-cover dark-filter transition-opacity duration-1000 ${imgLoaded ? 'opacity-100' : 'opacity-0'}`}
-          alt="Montañas del Quindío al amanecer con niebla"
-          src="https://btawegolhzbuztkaswaj.supabase.co/storage/v1/object/public/Fotos/2.png"
-        />
+          transition={{ duration: 12, ease: 'linear' }}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          poster="/fotos/2.webp"
+          onCanPlay={() => setVideoLoaded(true)}
+          className={`absolute inset-0 w-full h-full object-cover dark-filter transition-opacity duration-1000 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
+        >
+          <source src="/fotos/hero-principal.mp4" type="video/mp4" />
+        </motion.video>
         {/* Overlay: oscurece arriba y abajo para legibilidad, deja respirar el centro */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-[#26342d]/30 to-[#26342d]/95" />
         {/* Viñeta sutil para foco central */}

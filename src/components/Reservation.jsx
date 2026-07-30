@@ -8,7 +8,6 @@ import { Button } from '@/components/ui/button';
 import { useInView } from '@/hooks/useInView';
 import { useToast } from '@/components/ui/use-toast';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { supabase } from '@/lib/customSupabaseClient';
 
 const Reservation = ({ cabinName = 'General' }) => {
   const [ref, isInView] = useInView({ threshold: 0.1 });
@@ -54,29 +53,7 @@ const Reservation = ({ cabinName = 'General' }) => {
     setIsSubmitting(true);
 
     try {
-        // 1. Guardar en Base de Datos (Para registro interno)
-        const { error: dbError } = await supabase
-            .from('reservations')
-            .insert([
-                {
-                    name: formData.name,
-                    email: formData.email,
-                    phone: formData.phone,
-                    check_in: formData.checkIn,
-                    check_out: formData.checkOut,
-                    adults: parseInt(formData.adults),
-                    children: parseInt(formData.children),
-                    comments: formData.comments,
-                    cabin: cabinName
-                }
-            ]);
-
-        if (dbError) {
-            console.error('Error guardando reserva en DB:', dbError);
-            // No detenemos el flujo si falla la DB, priorizamos WhatsApp
-        }
-
-        // 2. Construir mensaje de WhatsApp
+        // Construir mensaje de WhatsApp
         const message = `Hola, quiero realizar una reserva en *El Refugio*:
 
 🏠 *Alojamiento:* ${cabinName}
@@ -91,7 +68,7 @@ const Reservation = ({ cabinName = 'General' }) => {
 
 Quedo atento a la confirmación y detalles de pago.`;
 
-        // 3. Crear URL de WhatsApp
+        // Crear URL de WhatsApp
         // Número destino: +57 318 947 5883
         const whatsappUrl = `https://wa.me/573189475883?text=${encodeURIComponent(message)}`;
 
@@ -101,7 +78,7 @@ Quedo atento a la confirmación y detalles de pago.`;
           duration: 3000,
         });
 
-        // 4. Abrir WhatsApp en nueva pestaña
+        // Abrir WhatsApp en nueva pestaña
         window.open(whatsappUrl, '_blank');
 
         // Limpiar formulario
