@@ -33,6 +33,12 @@ pnpm-debug.log*
 # macOS iCloud
 .Trash-*
 Icon?
+# iCloud sync conflict duplicates (e.g. "App 2.jsx")
+* [0-9].js
+* [0-9].jsx
+* [0-9].ts
+* [0-9].tsx
+* [0-9].css
 
 # Claude local settings
 .claude/settings.local.json
