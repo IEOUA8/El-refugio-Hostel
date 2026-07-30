@@ -94,9 +94,10 @@ const CuboPage = () => {
         </Link>
 
         <div className="grid md:grid-cols-2 gap-12 mb-16">
-           <motion.div 
-             initial={{ opacity: 0, x: -20 }}
-             whileInView={{ opacity: 1, x: 0 }}
+           <motion.div
+             initial={{ opacity: 0, y: 20 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             viewport={{ once: true, amount: 0.15 }}
              className="space-y-6"
            >
               <h2 className="text-3xl text-white font-normal">{t('rooms.cubo.description')}</h2>
@@ -128,9 +129,10 @@ const CuboPage = () => {
               </div>
            </motion.div>
 
-           <motion.div 
-             initial={{ opacity: 0, x: 20 }}
-             whileInView={{ opacity: 1, x: 0 }}
+           <motion.div
+             initial={{ opacity: 0, y: 20 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             viewport={{ once: true, amount: 0.15 }}
              className="space-y-4"
            >
               <div className="grid grid-cols-2 gap-3 h-80 sm:h-96">
@@ -146,13 +148,13 @@ const CuboPage = () => {
                  <div className="bg-[#1c2822] border border-[#307458]/50 rounded-2xl p-5 text-center shadow-lg">
                     <p className="text-[11px] uppercase tracking-wider text-[#c0e69b] mb-3">{t('rooms.cubo.priceWeekday')}</p>
                     <span className="block text-sm text-gray-500 line-through decoration-red-500/70 font-light">$450.000</span>
-                    <span className="block text-3xl text-white font-normal">$390.000</span>
+                    <span className="block text-2xl sm:text-3xl text-white font-normal">$390.000</span>
                     <p className="text-xs text-gray-400 mt-2 font-light">{t('rooms.cubo.perNight')}</p>
                  </div>
                  <div className="bg-[#1c2822] border border-[#307458]/50 rounded-2xl p-5 text-center shadow-lg">
                     <p className="text-[11px] uppercase tracking-wider text-[#c0e69b] mb-3">{t('rooms.cubo.priceWeekend')}</p>
                     <span className="block text-sm text-gray-500 line-through decoration-red-500/70 font-light">$650.000</span>
-                    <span className="block text-3xl text-white font-normal">$499.000</span>
+                    <span className="block text-2xl sm:text-3xl text-white font-normal">$499.000</span>
                     <p className="text-xs text-gray-400 mt-2 font-light">{t('rooms.cubo.perNight')}</p>
                  </div>
               </div>

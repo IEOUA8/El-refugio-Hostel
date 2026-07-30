@@ -15,7 +15,7 @@ function App() {
   return (
     <LanguageProvider>
       <Router>
-        <div className="min-h-screen main-bg-gradient flex flex-col font-light">
+        <div className="min-h-screen main-bg-gradient flex flex-col font-light overflow-x-clip">
           <Navbar />
           <main className="flex-grow">
             <Suspense fallback={<div className="min-h-screen" />}>
