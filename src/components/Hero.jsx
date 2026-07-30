@@ -43,34 +43,25 @@ const Hero = () => {
       </div>
 
       <div className="relative z-10 text-center px-4 max-w-5xl mx-auto flex flex-col items-center">
-        {/* Eyebrow / badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="mb-6 inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs md:text-sm tracking-wide text-white/90"
-        >
-          <MapPin size={14} className="text-[#c0e69b]" />
-          {t('hero.eyebrow')}
-        </motion.div>
-
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-5xl md:text-7xl lg:text-8xl leading-[1.05] mb-5 text-shadow text-white font-semibold"
+          className="text-5xl md:text-7xl lg:text-8xl leading-[1.05] mb-6 text-shadow text-white font-semibold"
         >
           {t('hero.title')}
         </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
+        {/* Único indicador de ubicación, ahora bajo el título (evita repetir "Buenavista, Quindío") */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.25 }}
-          className="text-lg md:text-2xl text-[#c0e69b] text-shadow font-light"
+          className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs md:text-sm tracking-wide text-white/90"
         >
-          {t('hero.subtitle')}
-        </motion.p>
+          <MapPin size={14} className="text-[#c0e69b]" />
+          {t('hero.eyebrow')}
+        </motion.div>
 
         {/* CTAs */}
         <motion.div

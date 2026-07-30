@@ -18,84 +18,84 @@ const Gallery = () => {
 
   const galleryItems = [
     {
-      title: t('gallery.items.terraza.title'),
-      location: "Buenavista, Quindío",
-      rating: 4.9,
-      thumb: "/fotos/n-terraza.webp",
-      full: "/fotos/n-terraza.webp",
-      description: t('gallery.items.terraza.desc')
+      title: "Descanso entre Nubes",
+      location: "Malla Catamarán",
+      rating: 5.0,
+      thumb: "/fotos/slide-1.webp",
+      full: "/fotos/slide-1.webp",
+      description: "Recuéstate suspendido sobre la montaña y déjate envolver por la calma del paisaje."
     },
     {
-      title: "Entrada al Paraíso",
-      location: "El Refugio",
+      title: "Naturaleza Viva",
+      location: "Jardines del Refugio",
+      rating: 4.9,
+      thumb: "/fotos/slide-2.webp",
+      full: "/fotos/slide-2.webp",
+      description: "Explora el color y la biodiversidad que rodean nuestro refugio."
+    },
+    {
+      title: "Mirador en Plenitud",
+      location: "Zona Común",
       rating: 4.8,
-      thumb: "/fotos/n-entrada.webp",
-      full: "/fotos/n-entrada.webp",
-      description: "El primer paso hacia una experiencia de desconexión y armonía con la naturaleza."
+      thumb: "/fotos/slide-3.webp",
+      full: "/fotos/slide-3.webp",
+      description: "Contempla la cordillera y respira el aire puro de Buenavista."
+    },
+    {
+      title: "Noche de Fogata",
+      location: "Fogata",
+      rating: 5.0,
+      thumb: "/fotos/slide-4.webp",
+      full: "/fotos/slide-4.webp",
+      description: "Comparte historias bajo el cielo estrellado junto al calor del fuego."
+    },
+    {
+      title: "Refugio Petfriendly",
+      location: "Alrededores",
+      rating: 4.9,
+      thumb: "/fotos/slide-5.webp",
+      full: "/fotos/slide-5.webp",
+      description: "Un destino natural que también recibe con cariño a tu mejor compañero."
+    },
+    {
+      title: "Tina con Vista",
+      location: "Tina Privada",
+      rating: 5.0,
+      thumb: "/fotos/slide-6.webp",
+      full: "/fotos/slide-6.webp",
+      description: "Sumérgete en agua tibia frente a un horizonte de montañas."
     },
     {
       title: "Rincón de Paz",
       location: "Interior Cabaña",
       rating: 5.0,
-      thumb: "/fotos/n-breathe.webp",
-      full: "/fotos/n-breathe.webp",
+      thumb: "/fotos/slide-7.webp",
+      full: "/fotos/slide-7.webp",
       description: "Detalles que inspiran calma y te invitan a respirar profundo. Simplemente 'Breathe'."
-    },
-    {
-      title: "Mirador en Plenitud",
-      location: "Zona Común",
-      rating: 4.7,
-      thumb: "/fotos/n-mirador.webp",
-      full: "/fotos/n-mirador.webp",
-      description: "Observa este hermoso paisaje y déjate abrazar por la montaña."
-    },
-    {
-      title: "Cocina al Aire Libre",
-      location: "Desayuno con vista",
-      rating: 4.9,
-      thumb: "/fotos/n-cocina.webp",
-      full: "/fotos/n-cocina.webp",
-      description: "Comienza el día con un desayuno rodeado del sonido de la naturaleza."
-    },
-    {
-      title: "Decoración y Encanto",
-      location: "Rincón interior",
-      rating: 5.0,
-      thumb: "/fotos/n-decoracion.webp",
-      full: "/fotos/n-decoracion.webp",
-      description: "Cada detalle está pensado para una estadía con tranquilidad total."
     },
     {
       title: "Baño de Bosque",
       location: "Tina",
       rating: 4.9,
-      thumb: "/fotos/n-tina.webp",
-      full: "/fotos/n-tina.webp",
-      description: "Sumérgete en nuestro hot tub de madera y deja que la montaña te abrace."
+      thumb: "/fotos/slide-8.webp",
+      full: "/fotos/slide-8.webp",
+      description: "Un baño caliente rodeado de la exuberancia del bosque tropical."
     },
     {
-      title: "Espacio Acogedor",
-      location: "Interior",
-      rating: 4.8,
-      thumb: "/fotos/n-interior.webp",
-      full: "/fotos/n-interior.webp",
-      description: "Cada rincón está pensado para tu comodidad y tranquilidad."
-    },
-    {
-      title: "Naturaleza Viva",
-      location: "Alrededores",
+      title: "Momentos con Sabor",
+      location: "Terraza",
       rating: 4.9,
-      thumb: "/fotos/n-naturaleza.webp",
-      full: "/fotos/n-naturaleza.webp",
-      description: "Explora la biodiversidad que rodea nuestro refugio."
+      thumb: "/fotos/slide-9.webp",
+      full: "/fotos/slide-9.webp",
+      description: "Brinda y disfruta de la buena mesa con la naturaleza como testigo."
     },
     {
-      title: "Noche Estrellada",
-      location: "Fogata",
-      rating: 5.0,
-      thumb: "/fotos/n-fogata.webp",
-      full: "/fotos/n-fogata.webp",
-      description: "Comparte historias bajo el cielo estrellado junto al calor del fuego."
+      title: "Nuestra Cabaña Cubo",
+      location: "Buenavista, Quindío",
+      rating: 4.9,
+      thumb: "/fotos/slide-10.webp",
+      full: "/fotos/slide-10.webp",
+      description: "Arquitectura que se funde con la montaña para una desconexión total."
     }
   ];
 

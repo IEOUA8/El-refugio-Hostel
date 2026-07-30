@@ -34,7 +34,7 @@ const Rooms = () => {
       { icon: Gamepad2, text: t('rooms.cubo.amenities.games') },
       { icon: Eye, text: t('rooms.cubo.amenities.view') }
     ],
-    image: '/fotos/5.webp'
+    image: '/fotos/n-terraza.webp'
   };
 
   const restAmenities = room.amenities.length - 6;

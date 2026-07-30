@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Check, Coffee, Star, Shield, Wind, Bed, Bath, Utensils, Car, Maximize2 } from 'lucide-react';
+import { ArrowLeft, Check, Coffee, Star, Shield, Wind, Bed, Bath, Utensils, Car, Maximize2, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Reservation from '@/components/Reservation';
 import ImageModal from '@/components/ui/ImageModal';
@@ -12,6 +12,14 @@ const CuboPage = () => {
   const { t, language } = useLanguage();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const stripRef = useRef(null);
+
+  const scrollStrip = (dir) => {
+    const strip = stripRef.current;
+    if (!strip) return;
+    const amount = strip.clientWidth * 0.8;
+    strip.scrollBy({ left: dir === 'next' ? amount : -amount, behavior: 'smooth' });
+  };
   
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -29,17 +37,19 @@ const CuboPage = () => {
   ];
 
   const layoutImages = [
-    "/fotos/n-cubo-ext.webp",
-    "/fotos/n-interior.webp",
-    "/fotos/n-breathe.webp"
+    "/fotos/cubo-1.webp",
+    "/fotos/cubo-2.webp",
+    "/fotos/cubo-3.webp"
   ];
 
   const galleryImages = [
-    "/fotos/n-tina.webp",
     "/fotos/n-cocina.webp",
-    "/fotos/n-vista.webp",
+    "/fotos/n-interior.webp",
     "/fotos/n-sendero.webp",
-    "/fotos/n-selibre.webp"
+    "/fotos/n-tina.webp",
+    "/fotos/n-vista.webp",
+    "/fotos/n-selibre.webp",
+    "/fotos/n-cubo-ext.webp"
   ];
 
   const openModal = (index) => {
@@ -124,10 +134,10 @@ const CuboPage = () => {
              className="space-y-4"
            >
               <div className="grid grid-cols-2 gap-3 h-80 sm:h-96">
-                 <img src={layoutImages[1]} loading="lazy" decoding="async" className="w-full h-full object-cover rounded-2xl" alt="Interior" />
+                 <img src={layoutImages[0]} loading="lazy" decoding="async" className="w-full h-full object-cover rounded-2xl" alt="Transporte Jeep Willys" />
                  <div className="grid grid-rows-2 gap-3 h-full">
-                    <img src={layoutImages[2]} loading="lazy" decoding="async" className="w-full h-full object-cover rounded-2xl" alt="Detalle" />
-                    <img src="/fotos/n-entrada.webp" loading="lazy" decoding="async" className="w-full h-full object-cover rounded-2xl" alt="Entrada" />
+                    <img src={layoutImages[1]} loading="lazy" decoding="async" className="w-full h-full object-cover rounded-2xl" alt="Un momento de calma" />
+                    <img src={layoutImages[2]} loading="lazy" decoding="async" className="w-full h-full object-cover rounded-2xl" alt="El Refugio" />
                  </div>
               </div>
 
@@ -149,21 +159,42 @@ const CuboPage = () => {
            </motion.div>
         </div>
 
-        {/* New Gallery Section */}
+        {/* Galería: un solo renglón con flechas para ver las ocultas */}
         <div className="mb-16">
-          <h3 className="text-3xl text-white mb-8 text-center font-normal">{t('cuboPage.galleryTitle')}</h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          <div className="flex items-center justify-between gap-4 mb-8">
+            <h3 className="text-3xl text-white font-normal">{t('cuboPage.galleryTitle')}</h3>
+            <div className="flex gap-2">
+              <button
+                onClick={() => scrollStrip('prev')}
+                aria-label="Anterior"
+                className="focus-ring w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white/10 active:scale-95 transition-all"
+              >
+                <ChevronLeft size={20} className="icon-custom-color" />
+              </button>
+              <button
+                onClick={() => scrollStrip('next')}
+                aria-label="Siguiente"
+                className="focus-ring w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white/10 active:scale-95 transition-all"
+              >
+                <ChevronRight size={20} className="icon-custom-color" />
+              </button>
+            </div>
+          </div>
+          <div
+            ref={stripRef}
+            className="flex gap-4 overflow-x-auto scrollbar-hide scroll-smooth snap-x snap-mandatory pb-2"
+          >
             {galleryImages.map((img, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="relative h-48 rounded-xl overflow-hidden cursor-pointer group border border-white/10 shadow-lg"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.97 }}
+                className="relative flex-shrink-0 w-64 sm:w-72 h-52 snap-start rounded-2xl overflow-hidden cursor-pointer group border border-white/10 shadow-lg"
                 onClick={() => openModal(index)}
               >
                 <img
                   src={img}
-                  alt={`Gallery ${index + 1}`}
+                  alt={`Galería Cubo ${index + 1}`}
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
