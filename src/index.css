@@ -1,0 +1,217 @@
+/*
+   Quicksand se carga desde index.html (preconnect + preload) para no bloquear
+   el render. No usar @import aquí.
+*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* --- Marca El Refugio (fuente única de verdad del color) --- */
+    --brand-forest: 150 16% 18%;   /* #26342d  fondo bosque profundo */
+    --brand-green: 155 42% 32%;    /* #307458  verde principal       */
+    --brand-lime: 90 60% 76%;      /* #c0e69b  acento lima            */
+
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    /* primary/accent alineados a la marca en vez del azul por defecto de shadcn */
+    --primary: var(--brand-green);
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: var(--brand-lime);
+    --accent-foreground: var(--brand-forest);
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: var(--brand-green);
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+
+  /* 
+     CRITICAL FIX: UNIVERSAL RESET
+     We target EVERY element to force Quicksand.
+  */
+  *, *::before, *::after {
+    font-family: 'Quicksand', sans-serif !important;
+    border-color: hsl(var(--border));
+  }
+  
+  /* 
+     BASE TEXT: LIGHT (300)
+     We use !important to override any user-agent styles or inherited bold weights.
+  */
+  html, body, div, span, applet, object, iframe,
+  p, blockquote, pre,
+  a, abbr, acronym, address, big, cite, code,
+  del, dfn, em, img, ins, kbd, q, s, samp,
+  small, strike, sub, sup, tt, var,
+  b, u, i, center,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td,
+  article, aside, canvas, details, embed, 
+  figure, figcaption, footer, header, hgroup, 
+  menu, nav, output, ruby, section, summary,
+  time, mark, audio, video, button, input, textarea, select {
+    font-family: 'Quicksand', sans-serif !important;
+    font-weight: 300 !important;
+  }
+
+  /* 
+     HEADINGS: SEMIBOLD (600)
+     Updated to force headings to 600 weight.
+  */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Quicksand', sans-serif !important;
+    font-weight: 600 !important;
+  }
+  
+  /*
+     STRONG/BOLD TAGS
+     Reset to 600 for emphasis.
+  */
+  strong, b {
+    font-weight: 600 !important;
+  }
+}
+
+/* -------------------------------
+   UTILITY CLASS OVERRIDES
+   This neutralizes Tailwind's default weights if they are used in components.
+--------------------------------*/
+
+.font-thin, .font-extralight, .font-light {
+  font-weight: 300 !important;
+}
+
+.font-normal, .font-medium {
+  font-weight: 300 !important; /* Map Medium to Light to keep it thin */
+}
+
+.font-semibold, .font-bold, .font-extrabold, .font-black {
+  font-weight: 600 !important; /* Map Bold/Semibold to 600 */
+}
+
+/* Clases personalizadas del proyecto */
+.main-bg-gradient {
+  @apply bg-gradient-to-br from-[#26342d] via-emerald-950/80 to-[#26342d];
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.text-shadow {
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.parallax-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  object-fit: cover;
+  opacity: 0.1;
+}
+
+.dark-filter {
+  @apply filter brightness-75;
+}
+
+.icon-custom-color {
+  color: #c0e69b;
+}
+
+.btn-custom {
+  @apply bg-gradient-to-br from-[#307458] to-emerald-600 text-white shadow-lg hover:shadow-xl hover:shadow-[#307458]/50 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.97] transition-all duration-300 font-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c0e69b] focus-visible:ring-offset-2 focus-visible:ring-offset-[#26342d];
+}
+
+/* Anillo de foco de marca para botones/enlaces con teclado (accesibilidad) */
+.focus-ring {
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c0e69b] focus-visible:ring-offset-2 focus-visible:ring-offset-[#26342d];
+}
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Respeta el área segura de iOS (notch / home indicator) */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .h-safe-bottom {
+    height: env(safe-area-inset-bottom);
+  }
+}
+
+/* -------------------------------
+   NAVEGACIÓN POR ANCLAS
+   Scroll suave + margen para que el navbar flotante no tape los títulos.
+--------------------------------*/
+html {
+  scroll-behavior: smooth;
+}
+
+section[id],
+[id="inicio"],
+[id="cabanas"],
+[id="servicios"],
+[id="galeria"],
+[id="reservar"] {
+  scroll-margin-top: 7rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
