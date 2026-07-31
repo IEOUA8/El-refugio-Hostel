@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, Star, MapPin } from 'lucide-react';
 import { useInView } from '@/hooks/useInView';
-import { useToast } from '@/components/ui/use-toast';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const Gallery = () => {
@@ -12,7 +11,6 @@ const Gallery = () => {
   const [direction, setDirection] = useState(0);
   const [loadedFull, setLoadedFull] = useState('');
   const stripRef = useRef(null);
-  const { toast } = useToast();
   const { t } = useLanguage();
   const navigate = useNavigate();
 
@@ -127,14 +125,7 @@ const Gallery = () => {
   };
 
   const handleExplore = () => {
-    if (activeItem.isLink) {
-      navigate('/cubo');
-    } else {
-      toast({
-        title: `Explorando ${activeItem.title}`,
-        description: "🚧 ¡Esta función estará disponible pronto!",
-      });
-    }
+    navigate('/cubo');
   };
 
   const imgVariants = {
